@@ -2,8 +2,8 @@ omg: 1
 
 info:
   version: 1.0.0
-  title: Your microservice
-  description: Describe your microservice
+  title: oms-parse-url
+  description: Parse URL using WHATWG URL Standard.
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
@@ -18,19 +18,19 @@ health:
     port: 8080
 
 actions:
-  message:
+  parse:
+    help: Parse URL using WHATWG URL Standard.
     http:
-      path: /message
+      path: /parse
       method: post
       port: 8080
     arguments:
-      name:
+      url:
+        help: A url to parse.
         type: string
         required: true
         in: requestBody
     output:
+      help: Returns the parsed URL parts.
       contentType: application/json
-      type: object
-      properties:
-        message:
-          type: string
+      type: map
