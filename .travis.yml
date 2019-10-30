@@ -6,10 +6,10 @@ services:
   - docker
 
 before_install:
-  - npm i omg
+  - npm i @microservices/cli
 
 script:
-  - npx omg build
+  - npx oms build
   - |
-    output="$(npx omg run --raw message -a name="World" | jq -c .)"
-    if [ "$output" != '{"message":"Hello World"}' ] ; then echo "$output"; exit 1; fi
+    output="$(npx oms run --silent parse -a url="https://httpbin.org" | jq -c .)"
+    if [ "$output" != '{"protocol":"https:","slashes":true,"auth":null,"host":"httpbin.org","port":null,"hostname":"httpbin.org","hash":null,"search":null,"query":null,"pathname":"/","path":"/","href":"https://httpbin.org/"}' ] ; then echo "$output"; exit 1; fi
