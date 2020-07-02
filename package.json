@@ -27,7 +27,7 @@
   "devDependencies": {
     "cz-conventional-changelog": "3.0.2",
     "nodemon": "1.19.4",
-    "standard": "14.3.1"
+    "standard": "14.3.4"
   },
   "config": {
     "commitizen": {
